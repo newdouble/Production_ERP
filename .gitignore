@@ -1,15 +1,9 @@
-/target
-/classes
-
-/.settings
-/.peoject
-/.classpath
-/.springBeans
-# Maven
 target/
-release.properties
+classes/
+*.properties
+*.class
 
-# IntelliJ
+# Idea
 *.iml
 *.ipr
 *.iws
