@@ -15,6 +15,18 @@ public class Manufacture {
 
     private Date endDate;
 
+    @Override
+    public String toString() {
+        return "Manufacture{" +
+                "manufactureSn='" + manufactureSn + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", technologyId='" + technologyId + '\'' +
+                ", launchQuantity=" + launchQuantity +
+                ", beginDate=" + beginDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+
     public String getManufactureSn() {
         return manufactureSn;
     }
