@@ -81,8 +81,25 @@
       order by ${orderByClause}
     </if>
   </select>
+  <!--通过部门名返回部门信息-->
+  <select id="selectDepartmentsByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from department
+    where department_name like CONCAT('%','#{departmentName}','%')
+  </select>
+  <!--通过部门id返回部门信息-->
+  <select id="selectDepartmentsById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from department
+    where department_id like CONCAT('%',#{departmentId},'%' )
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
+    <if test="distinct">
+      distinct
+    </if>
     <include refid="Base_Column_List" />
     from department
     where department_id = #{departmentId,jdbcType=VARCHAR}
