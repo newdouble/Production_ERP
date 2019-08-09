@@ -29,7 +29,10 @@
         <!--数据源相关-->
         <property name="dataSource" ref="myDataSources"/>
         <!--mybatis配置-->
+<<<<<<< HEAD
         <!--分页-->
+=======
+>>>>>>> 2e0e520bfcc3d7d1abf5f1af65aaf1a483252f80
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
@@ -46,7 +49,6 @@
         <property name="basePackage" value="com.cskaoyan.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-
     <mvc:default-servlet-handler />
     <!--默认的静态资源处理器
      <mvc:default-servlet-handler />-->
