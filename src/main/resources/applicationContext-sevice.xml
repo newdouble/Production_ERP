@@ -29,6 +29,16 @@
         <!--数据源相关-->
         <property name="dataSource" ref="myDataSources"/>
         <!--mybatis配置-->
+        <!--分页-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>helperDialect=mysql</value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
     <!--将包下的mapper接口自动创建代理对象，
     并且自动创建到spring容器中，bean的id是mapper的类名-->
