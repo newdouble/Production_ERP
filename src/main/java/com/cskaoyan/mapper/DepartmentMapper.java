@@ -27,4 +27,8 @@ public interface DepartmentMapper {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+    /*补充部分*/
+    /*通过departmentId返回department*/
+    List<Department> selectDepartmentsById(String departmentId);
+    List<Department> selectDepartmentsByName(String departmentName);
 }

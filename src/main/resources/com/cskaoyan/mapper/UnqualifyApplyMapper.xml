@@ -3,7 +3,7 @@
 <mapper namespace="com.cskaoyan.mapper.UnqualifyApplyMapper">
   <resultMap id="BaseResultMap" type="com.cskaoyan.bean.UnqualifyApply">
     <id column="unqualify_apply_id" jdbcType="VARCHAR" property="unqualifyApplyId" />
-    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="product_Name" jdbcType="VARCHAR" property="productId" />
     <result column="unqualify_item" jdbcType="VARCHAR" property="unqualifyItem" />
     <result column="unqualify_count" jdbcType="INTEGER" property="unqualifyCount" />
     <result column="assembly_date" jdbcType="TIMESTAMP" property="assemblyDate" />
