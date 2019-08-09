@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UnqualifyApplyMapper {
-    long countByExample(UnqualifyApplyExample example);
+    long countByExample(UnqualifyApplyExample.Criteria example);
 
     int deleteByExample(UnqualifyApplyExample example);
 
