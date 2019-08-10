@@ -14,6 +14,7 @@ public class DeviceTypeController {
 
     @RequestMapping("device/deviceType")
     public String queryDeviceType(){
+        System.out.println("aaaaa");
         return "/WEB-INF/jsp/deviceType.jsp";
     }
     @RequestMapping("deviceType/list")
