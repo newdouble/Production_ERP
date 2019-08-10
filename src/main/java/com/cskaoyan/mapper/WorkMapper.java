@@ -1,5 +1,6 @@
 package com.cskaoyan.mapper;
 
+import com.cskaoyan.bean.UnqualifyApply;
 import com.cskaoyan.bean.Work;
 import com.cskaoyan.bean.WorkExample;
 import java.util.List;
@@ -27,4 +28,5 @@ public interface WorkMapper {
     int updateByPrimaryKeySelective(Work record);
 
     int updateByPrimaryKey(Work record);
+
 }

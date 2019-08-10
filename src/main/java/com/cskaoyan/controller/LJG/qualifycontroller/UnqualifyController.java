@@ -1,7 +1,7 @@
-package com.cskaoyan.controller.qualifycontroller;
+package com.cskaoyan.controller.LJG.qualifycontroller;
 
 import com.cskaoyan.bean.UnqualifyApply;
-import com.cskaoyan.service.qualify.UnqualifyService;
+import com.cskaoyan.service.LJG.qualify.UnqualifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,3 +35,9 @@ public class UnqualifyController {
     }
 
 }
+
+
+
+
+
+

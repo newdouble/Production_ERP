@@ -1,4 +1,5 @@
-package com.cskaoyan.service.qualify;
+package com.cskaoyan.service.LJG.qualify;
+
 
 import com.cskaoyan.bean.UnqualifyApply;
 

@@ -69,5 +69,5 @@ public class DepartmentController {
     public PageResult searchDepartmentByDepartmentName(String departmentName,int page,int rows){
         return departmentService.selectDepartmentsByName(departmentName,page,rows);
     }
-    @RequestMapping()
+    //@RequestMapping()
 }

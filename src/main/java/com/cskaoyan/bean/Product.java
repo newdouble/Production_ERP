@@ -1,5 +1,7 @@
 package com.cskaoyan.bean;
 
+import com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2;
+
 public class Product {
     private String productId;
 
@@ -12,6 +14,7 @@ public class Product {
     private String note;
 
     private Integer status;
+
 
     public String getProductId() {
         return productId;
