@@ -352,4 +352,23 @@
     em.emp_name
     from process_count_check pc left join employee em on em.emp_id = pc.emp_id
   </select>
+
+  <select id="searchPCountCheckById" resultMap="pCountResultMap">
+    select
+    pc.p_count_check_id,
+    pc.process_id,
+    pc.check_item,
+    pc.sample,
+    pc.check_number,
+    pc.unqualify,
+    pc.qualify,
+    pc.cdate,
+    pc.measure_data,
+    pc.emp_id,
+    pc.result,
+    pc.note,
+    em.emp_name
+    from process_count_check pc left join employee em on em.emp_id = pc.emp_id
+    where pc.p_count_check_id like '%${id}%'
+  </select>
 </mapper>

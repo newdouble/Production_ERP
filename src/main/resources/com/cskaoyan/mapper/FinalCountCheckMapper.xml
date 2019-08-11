@@ -352,4 +352,42 @@
     em.emp_name
     from final_count_check fc left join employee em on em.emp_id = fc.emp_id
   </select>
+
+  <select id="SearchFcountById" resultMap="checkResultMap">
+    select
+    fc.f_count_check_id,
+    fc.order_id,
+    fc.check_item,
+    fc.sample,
+    fc.check_number,
+    fc.unqualify,
+    fc.qualify,
+    fc.cdate,
+    fc.measure_data,
+    fc.result,
+    fc.note,
+    em.emp_id,
+    em.emp_name
+    from final_count_check fc left join employee em on em.emp_id = fc.emp_id
+    where fc.f_count_check_id like '%${idz}%'
+  </select>
+
+  <select id="SearchFcountByOId" resultMap="checkResultMap">
+    select
+    fc.f_count_check_id,
+    fc.order_id,
+    fc.check_item,
+    fc.sample,
+    fc.check_number,
+    fc.unqualify,
+    fc.qualify,
+    fc.cdate,
+    fc.measure_data,
+    fc.result,
+    fc.note,
+    em.emp_id,
+    em.emp_name
+    from final_count_check fc left join employee em on em.emp_id = fc.emp_id
+    where fc.order_id like '%${id}%'
+  </select>
 </mapper>

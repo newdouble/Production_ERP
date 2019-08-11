@@ -280,4 +280,37 @@
      from final_measuret_check fm left join employee em
      on em.emp_id = fm.emp_id
   </select>
+
+  <select id="measureSearchById" resultMap="measureresultMap">
+    select
+     fm.f_measure_check_id,
+     fm.order_id,
+     fm.check_item,
+     fm.cdate,
+     fm.measure_data,
+     fm.emp_id,
+     fm.result,
+     fm.note,
+     em.emp_name
+     from final_measuret_check fm left join employee em
+     on em.emp_id = fm.emp_id
+     where fm.f_measure_check_id like '%${id}%'
+  </select>
+
+  <select id="measureSearchByOId" resultMap="measureresultMap">
+    select
+     fm.f_measure_check_id,
+     fm.order_id,
+     fm.check_item,
+     fm.cdate,
+     fm.measure_data,
+     fm.emp_id,
+     fm.result,
+     fm.note,
+     em.emp_name
+     from final_measuret_check fm left join employee em
+     on em.emp_id = fm.emp_id
+     where fm.order_id like '%${id}%'
+  </select>
+
 </mapper>

@@ -30,4 +30,6 @@ public interface ProcessMeasureCheckMapper {
     int updateByPrimaryKey(ProcessMeasureCheck record);
 
     List<ProcessMeasureCheck2> measureCheck();
+
+    List<ProcessMeasureCheck2> serachByPmeasureCheckId(@Param("id")String id);
 }

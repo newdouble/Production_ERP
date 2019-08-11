@@ -8,6 +8,7 @@ import com.cskaoyan.mapper.UnqualifyApplyMapper;
 import com.cskaoyan.service.LJG.qualify.UnqualifyService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -131,7 +132,18 @@ public class UnqualifyController {
         return responseVo;
     }
 
+    @RequestMapping("search_unqualify_by_unqualifyId")
+    @ResponseBody
+    public PageResult searchUnqualifyApplyById(String searchValue,int page,int rows){
 
+       return unqualifyService.searchUnqualifyApplyById(searchValue,page,rows);
+    }
+
+    @RequestMapping("search_unqualify_by_productName")
+    @ResponseBody
+    public PageResult searchUnqualifyByName(String searchValue,int page,int rows){
+        return  unqualifyService.searchUnqualifyByName(searchValue,page,rows);
+    }
 }
 
 

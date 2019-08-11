@@ -27,5 +27,10 @@ public interface UnqualifyApplyMapper {
     int updateByPrimaryKeySelective(UnqualifyApply record);
 
     int updateByPrimaryKey(UnqualifyApply record);
+
     List<UnqualifyApply> queryAllUnQualify();
+
+    List<UnqualifyApply> searchUnqualifyApplyById(@Param("id") String id);
+
+    List<UnqualifyApply> searchUnqualifyApplyByName(@Param("namez") String name);
 }

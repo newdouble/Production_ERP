@@ -130,4 +130,10 @@ public class PCheckCountController {
         }
         return responseVo;
     }
+
+    @RequestMapping("p_count_check/search_pCountCheck_by_pCountCheckId")
+    @ResponseBody
+    public PageResult searchById(String searchValue,int page,int rows){
+        return pCheckCountService.searchPCById(searchValue,page,rows);
+    }
 }

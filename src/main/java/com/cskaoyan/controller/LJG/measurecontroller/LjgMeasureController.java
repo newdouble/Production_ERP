@@ -127,4 +127,16 @@ public class LjgMeasureController {
         map.put("msg","OK");
         return map;
     }
+
+    @RequestMapping("/measure/search_fMeasureCheck_by_fMeasureCheckId")
+    @ResponseBody
+    public PageResult queryMeasureById(String searchValue,int page,int rows){
+        return ljgMeasureService.queryMeasureSearchById(searchValue, page,rows);
+    }
+
+    @RequestMapping("/measure/search_fMeasureCheck_by_orderId")
+    @ResponseBody
+    public PageResult queryMeasureByOId(String searchValue,int page,int rows){
+        return ljgMeasureService.queryMeasureSearchByOId(searchValue, page,rows);
+    }
 }

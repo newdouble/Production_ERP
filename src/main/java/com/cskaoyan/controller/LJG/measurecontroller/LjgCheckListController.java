@@ -129,4 +129,16 @@ public class LjgCheckListController {
 
     }
 
+    @RequestMapping("/f_count_check/search_fCountCheck_by_fCountCheckId")
+    @ResponseBody
+    public PageResult searchFcountById(String searchValue,int page,int rows ){
+        return ljgCheckCountService.SearchFcountByFId(searchValue,page,rows);
+    }
+
+    @RequestMapping("/f_count_check/search_fCountCheck_by_orderId")
+    @ResponseBody
+    public PageResult searchFcountByoId(String searchValue,int page,int rows ){
+        return ljgCheckCountService.SearchFcountByOId(searchValue,page,rows);
+    }
+
 }

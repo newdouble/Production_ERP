@@ -42,7 +42,7 @@ public class LjgMeasureCheckController {
         hashMap.put("rows",processMeasureCheck2s);
         return hashMap;
     }*/
-    @RequestMapping("/p_measure_check/list")
+    @RequestMapping("/p_measure_check/li st")
     @ResponseBody
     public PageResult getPageList(int page,int rows){
         PageResult pageResult = new PageResult();
@@ -126,5 +126,11 @@ public class LjgMeasureCheckController {
         }
         return responseVo;
 
+    }
+
+    @RequestMapping("/p_measure_check/search_pMeasureCheck_by_pMeasureCheckId")
+    @ResponseBody
+    public PageResult serachById(String searchValue, int page, int rows){
+        return ljgMeasureCheckService.serachByPmeasureCheckIdService(searchValue,page,rows);
     }
 }

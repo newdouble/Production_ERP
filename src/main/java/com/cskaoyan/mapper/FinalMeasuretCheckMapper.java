@@ -28,5 +28,10 @@ public interface FinalMeasuretCheckMapper {
     int updateByPrimaryKeySelective(FinalMeasuretCheck record);
 
     int updateByPrimaryKey(FinalMeasuretCheck record);
+
     List<FinalMeasuretCheck2> queryMeasureDetail();
+
+    List<FinalMeasuretCheck2> measureSearchById(@Param("id") String id);
+
+    List<FinalMeasuretCheck2> measureSearchByOId(@Param("id") String id);
 }

@@ -284,4 +284,40 @@
      left join product pr on un.product_id=pr.product_id
      left join employee em on un.emp_id=em.emp_id
   </select>
+
+  <select id="searchUnqualifyApplyById" resultMap="Unqualify">
+  select
+    un.unqualify_apply_id,
+    un.product_id,
+    un.unqualify_item,
+    un.unqualify_count,
+    un.assembly_date,
+    un.emp_id,
+    un.apply_date,
+    un.note,
+    pr.product_name,
+    em.emp_name
+     from unqualify_apply un
+     left join product pr on un.product_id=pr.product_id
+     left join employee em on un.emp_id=em.emp_id
+     where un.unqualify_apply_id like '%${id}%'
+  </select>
+
+  <select id="searchUnqualifyApplyByName" resultMap="Unqualify">
+  select
+    un.unqualify_apply_id,
+    un.product_id,
+    un.unqualify_item,
+    un.unqualify_count,
+    un.assembly_date,
+    un.emp_id,
+    un.apply_date,
+    un.note,
+    pr.product_name,
+    em.emp_name
+     from  unqualify_apply un
+     left join product pr on un.product_id=pr.product_id
+     left join employee em on un.emp_id=em.emp_id
+     where pr.product_name = #{namez}
+  </select>
 </mapper>

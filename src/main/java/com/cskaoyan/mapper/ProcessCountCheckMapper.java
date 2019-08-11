@@ -30,4 +30,6 @@ public interface ProcessCountCheckMapper {
     int updateByPrimaryKey(ProcessCountCheck record);
 
     List<ProcessCountCheck2> pCountCheckList();
+
+    List<ProcessCountCheck> searchPCountCheckById(@Param("id")String id);
 }
