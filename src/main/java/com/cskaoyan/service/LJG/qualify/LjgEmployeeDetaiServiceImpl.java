@@ -14,4 +14,6 @@ public class LjgEmployeeDetaiServiceImpl implements LjgEmployeeDetailService {
         Employee employee = employeeMapper.applyDetail(id);
         return employee;
     }
+
+
 }

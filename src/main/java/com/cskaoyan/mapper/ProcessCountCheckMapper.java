@@ -1,6 +1,7 @@
 package com.cskaoyan.mapper;
 
 import com.cskaoyan.bean.ProcessCountCheck;
+import com.cskaoyan.bean.ProcessCountCheck2;
 import com.cskaoyan.bean.ProcessCountCheckExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -27,4 +28,6 @@ public interface ProcessCountCheckMapper {
     int updateByPrimaryKeySelective(ProcessCountCheck record);
 
     int updateByPrimaryKey(ProcessCountCheck record);
+
+    List<ProcessCountCheck2> pCountCheckList();
 }

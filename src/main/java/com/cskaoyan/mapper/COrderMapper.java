@@ -30,4 +30,6 @@ public interface COrderMapper {
     int updateByPrimaryKey(COrder record);
 
     COrder2 queryorderdetail(@Param("oid") String id);
+
+    List<COrder2> orderGetData();
 }

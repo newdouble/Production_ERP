@@ -4,4 +4,5 @@ import com.cskaoyan.bean.Employee;
 
 public interface LjgEmployeeDetailService {
     Employee queryEmployeeById(String id);
+
 }
