@@ -24,10 +24,12 @@ public class OrderController {
     COrderService cOrderService;
     @Autowired
     HttpSession session;
+
     @RequestMapping("find")//显示修饰栏
     public String  find(){
         return "/WEB-INF/jsp/order_list.jsp";
     }
+
     @RequestMapping("list")//显示下面的各列
     @ResponseBody
     public PageResult queryOrderByPage(int page, int rows){
@@ -40,10 +42,12 @@ public class OrderController {
     public String add_judge(){
         return  "/WEB-INF/jsp/order_add.jsp";
     }
+
     @RequestMapping("add")//增加
     public String add(){
         return  "/WEB-INF/jsp/order_add.jsp";
     }
+
     @RequestMapping(value = "/insert", method= RequestMethod.POST)//更新
     @ResponseBody
     public ResponseMsg InsertById(COrder cOrder){
@@ -62,6 +66,7 @@ public class OrderController {
     public String edit_judge(){
         return  "/WEB-INF/jsp/order_edit.jsp";
     }
+
     @RequestMapping("edit")//编辑
     public String edit(){
         return  "/WEB-INF/jsp/order_edit.jsp";
@@ -84,6 +89,7 @@ public class OrderController {
     public String delete_judge(){
         return  "/WEB-INF/jsp/order_edit.jsp";
     }
+
     @RequestMapping("delete_batch")//删除
     @ResponseBody
     public ResponseMsg deleteById(@Param("ids") String[] ids){
@@ -117,4 +123,6 @@ public class OrderController {
     public PageResult search_order_by_orderProduct(int page, int rows,String searchValue){
         return cOrderService.search_order_by_orderProduct(page, rows, searchValue);
     }
+
+
 }

@@ -70,5 +70,7 @@
     <!--文件路径-->
     <mvc:resources mapping="/css/**" location="/WEB-INF/css/"/>
 
+    <mvc:resources mapping="/pic/**" location="/WEB-INF/pic/"/>
+
 
 </beans>

@@ -32,8 +32,8 @@
     <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
     <collection property="department" ofType="com.cskaoyan.bean.Department">
         <result property="departmentId" column="department_id"/>
-      <result property="departmentName" column="department_name"/>
-      <result property="note" column="note"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="note" column="note"/>
     </collection>
   </resultMap>
   <sql id="Example_Where_Clause">
