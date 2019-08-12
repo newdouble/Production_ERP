@@ -2,6 +2,7 @@ package com.cskaoyan.controller.plan;
 
 import com.cskaoyan.bean.Product;
 import com.cskaoyan.bean.Work;
+import com.cskaoyan.bean.pagez.PageResult;
 import com.cskaoyan.service.plan.ProductService;
 import com.cskaoyan.service.plan.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,7 @@ public class WorkController {
     }
     @RequestMapping("list")
     @ResponseBody
-    public List<Work> queryOrderByPage(int page, int rows){
-        List<Work> works = workService.queryOrderByPageAndRows(page,rows);
-        return works;
+    public PageResult queryOrderByPage(int page, int rows){
+        return workService.queryOrderByPageAndRows(page,rows);
     }
 }

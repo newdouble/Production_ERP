@@ -1,9 +1,9 @@
 package com.cskaoyan.service.plan;
 
-import com.cskaoyan.bean.Product;
+import com.cskaoyan.bean.pagez.PageResult;
 
-import java.util.List;
+
 
 public interface ProductService {
-    List<Product> queryOrderByPageAndRows(int page, int rows);
+    PageResult queryOrderByPageAndRows(int page, int rows);
 }

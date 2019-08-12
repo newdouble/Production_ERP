@@ -16,6 +16,26 @@
     <result column="education_form" jdbcType="VARCHAR" property="educationForm" />
     <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
   </resultMap>
+  <resultMap id="apply" type="com.cskaoyan.bean.Employee2">
+    <id column="emp_id" jdbcType="VARCHAR" property="empId" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="id_code" jdbcType="VARCHAR" property="idCode" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="join_date" jdbcType="DATE" property="joinDate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="graduate_school" jdbcType="VARCHAR" property="graduateSchool" />
+    <result column="education_form" jdbcType="VARCHAR" property="educationForm" />
+    <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
+    <collection property="department" ofType="com.cskaoyan.bean.Department">
+        <result property="departmentId" column="department_id"/>
+      <result property="departmentName" column="department_name"/>
+      <result property="note" column="note"/>
+    </collection>
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -335,4 +355,27 @@
       department_id = #{departmentId,jdbcType=VARCHAR}
     where emp_id = #{empId,jdbcType=VARCHAR}
   </update>
+  <!--员工个人信息与部门的连接查询-->
+  <select id="applyDetail" resultMap="apply">
+  select
+    em.emp_id,
+    em.emp_name,
+    em.sex,
+    em.id_code,
+    em.birthday,
+    em.join_date,
+    em.status,
+    em.education,
+    em.degree,
+    em.major,
+    em.graduate_school,
+    em.education_form,
+    em.department_id,
+    de.department_id,
+    de.department_name,
+    de.note
+    from employee em
+    left join department de on em.department_id = de.department_id
+    where em.emp_id=#{eid}
+  </select>
 </mapper>

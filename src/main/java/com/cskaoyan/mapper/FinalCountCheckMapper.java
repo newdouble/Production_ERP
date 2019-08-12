@@ -1,6 +1,7 @@
 package com.cskaoyan.mapper;
 
 import com.cskaoyan.bean.FinalCountCheck;
+import com.cskaoyan.bean.FinalCountCheck2;
 import com.cskaoyan.bean.FinalCountCheckExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -27,4 +28,6 @@ public interface FinalCountCheckMapper {
     int updateByPrimaryKeySelective(FinalCountCheck record);
 
     int updateByPrimaryKey(FinalCountCheck record);
+
+    List<FinalCountCheck2> queryCheckCount();
 }

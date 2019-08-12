@@ -1,8 +1,7 @@
-package com.cskaoyan.service.qualify;
+package com.cskaoyan.service.LJG.qualify;
 
 
 import com.cskaoyan.bean.UnqualifyApply;
-import com.cskaoyan.bean.UnqualifyApplyExample;
 import com.cskaoyan.mapper.UnqualifyApplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,11 +19,12 @@ public class UnqualifyServiceImpl implements UnqualifyService {
     @Override
     public List<UnqualifyApply> queryAllUnQualify() {
 
-        UnqualifyApplyExample unqualifyApplyExample = new UnqualifyApplyExample();
+       /* UnqualifyApplyExample unqualifyApplyExample = new UnqualifyApplyExample();
         unqualifyApplyExample.createCriteria().andAssemblyDateIsNotNull();
         List<UnqualifyApply> unqualifyApplies = unqualifyApplyMapper.selectByExample(unqualifyApplyExample);
 
-        return unqualifyApplies;
+        return unqualifyApplies;*/
+       return unqualifyApplyMapper.queryAllUnQualify();
     }
 
 

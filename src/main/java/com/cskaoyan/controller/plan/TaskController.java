@@ -1,6 +1,7 @@
 package com.cskaoyan.controller.plan;
 
 import com.cskaoyan.bean.Task;
+import com.cskaoyan.bean.pagez.PageResult;
 import com.cskaoyan.service.plan.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +21,8 @@ public class TaskController {
     }
     @RequestMapping("list")
     @ResponseBody
-    public List<Task> queryOrderByPage(int page, int rows){
-        List<Task> tasks = taskService.queryOrderByPageAndRows(page,rows);
-        return tasks;
+    public PageResult queryOrderByPage(int page, int rows){
+
+        return taskService.queryOrderByPageAndRows(page,rows);
     }
 }

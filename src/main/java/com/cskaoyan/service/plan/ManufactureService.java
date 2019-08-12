@@ -1,9 +1,8 @@
 package com.cskaoyan.service.plan;
 
-import com.cskaoyan.bean.Manufacture;
+import com.cskaoyan.bean.pagez.PageResult;
 
-import java.util.List;
 
 public interface ManufactureService {
-    List<Manufacture> queryOrderByPageAndRows(int page, int rows);
+    PageResult queryOrderByPageAndRows(int page, int rows);
 }

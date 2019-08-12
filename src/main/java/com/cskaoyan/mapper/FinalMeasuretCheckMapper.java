@@ -1,6 +1,7 @@
 package com.cskaoyan.mapper;
 
 import com.cskaoyan.bean.FinalMeasuretCheck;
+import com.cskaoyan.bean.FinalMeasuretCheck2;
 import com.cskaoyan.bean.FinalMeasuretCheckExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -27,4 +28,5 @@ public interface FinalMeasuretCheckMapper {
     int updateByPrimaryKeySelective(FinalMeasuretCheck record);
 
     int updateByPrimaryKey(FinalMeasuretCheck record);
+    List<FinalMeasuretCheck2> queryMeasureDetail();
 }

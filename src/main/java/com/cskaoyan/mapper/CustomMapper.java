@@ -27,4 +27,8 @@ public interface CustomMapper {
     int updateByPrimaryKeySelective(Custom record);
 
     int updateByPrimaryKey(Custom record);
+
+    List<Custom> search_custom_by_customId(@Param("id")String searchValue);
+
+    List<Custom> search_custom_by_customName(@Param("id")String searchValue);
 }

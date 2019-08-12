@@ -27,4 +27,5 @@ public interface EmployeeMapper {
     int updateByPrimaryKeySelective(Employee record);
 
     int updateByPrimaryKey(Employee record);
+    Employee applyDetail(@Param("eid") String id);
 }

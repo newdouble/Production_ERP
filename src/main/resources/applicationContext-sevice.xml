@@ -20,9 +20,10 @@
     <!--druid数据源相关-->
     <bean id="myDataSources" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/production_ssm"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/production_ssm?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
+        <property name="filters" value="stat"/>
     </bean>
     <!--sqlSessionFactory spring以及myBatis-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -30,9 +31,16 @@
         <property name="dataSource" ref="myDataSources"/>
         <!--mybatis配置-->
 <!--<<<<<<< HEAD-->
+<!--<<<<<<< HEAD-->
 <!--        &lt;!&ndash;分页&ndash;&gt;-->
 <!--=======-->
 <!--&gt;>>>>>> 2e0e520bfcc3d7d1abf5f1af65aaf1a483252f80-->
+<!--=======-->
+<!--<<<<<<< HEAD
+        &lt;!&ndash;分页&ndash;&gt;
+=======
+>>>>>>> 2e0e520bfcc3d7d1abf5f1af65aaf1a483252f80-->
+<!--&gt;>>>>>> 693bcb0db86d01db50467593b08f3bc651456da0-->
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">

@@ -11,6 +11,18 @@
     <result column="apply_date" jdbcType="TIMESTAMP" property="applyDate" />
     <result column="note" jdbcType="VARCHAR" property="note" />
   </resultMap>
+  <resultMap id="Unqualify" type="com.cskaoyan.bean.UnqualifyApply2">
+    <id column="unqualify_apply_id" jdbcType="VARCHAR" property="unqualifyApplyId" />
+    <result column="product_Id" jdbcType="VARCHAR" property="productId" />
+    <result column="unqualify_item" jdbcType="VARCHAR" property="unqualifyItem" />
+    <result column="unqualify_count" jdbcType="INTEGER" property="unqualifyCount" />
+    <result column="assembly_date" jdbcType="TIMESTAMP" property="assemblyDate" />
+    <result column="emp_id" jdbcType="VARCHAR" property="empId" />
+    <result column="apply_date" jdbcType="TIMESTAMP" property="applyDate" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result property="productName" column="product_name"/>
+    <result property="empName" column="emp_name"/>
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -256,4 +268,20 @@
       note = #{note,jdbcType=VARCHAR}
     where unqualify_apply_id = #{unqualifyApplyId,jdbcType=VARCHAR}
   </update>
+  <select id="queryAllUnQualify" resultMap="Unqualify">
+  select
+    un.unqualify_apply_id,
+    un.product_id,
+    un.unqualify_item,
+    un.unqualify_count,
+    un.assembly_date,
+    un.emp_id,
+    un.apply_date,
+    un.note,
+    pr.product_name,
+    em.emp_name
+     from unqualify_apply un
+     left join product pr on un.product_id=pr.product_id
+     left join employee em on un.emp_id=em.emp_id
+  </select>
 </mapper>

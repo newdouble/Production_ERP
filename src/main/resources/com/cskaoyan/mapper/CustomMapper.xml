@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.mapper.CustomMapper">
+
   <resultMap id="BaseResultMap" type="com.cskaoyan.bean.Custom">
     <id column="custom_id" jdbcType="VARCHAR" property="customId" />
     <result column="custom_name" jdbcType="VARCHAR" property="customName" />
@@ -288,4 +289,41 @@
       note = #{note,jdbcType=VARCHAR}
     where custom_id = #{customId,jdbcType=VARCHAR}
   </update>
+
+
+
+<!--  通过search_custom_by_customId-->
+  <select id="search_custom_by_customId" resultMap="BaseResultMap">
+select
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note
+  from custom cu
+  where cu.custom_id LIKE CONCAT ('%',#{id},'%')
+  </select>
+
+<!--  通过search_custom_by_customName-->
+  <select id="search_custom_by_customName" resultMap="BaseResultMap">
+select
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note
+  from custom cu
+  where cu.custom_name LIKE CONCAT ('%',#{id},'%')
+  </select>
+
 </mapper>

@@ -2,6 +2,7 @@ package com.cskaoyan.controller.plan;
 
 
 import com.cskaoyan.bean.Product;
+import com.cskaoyan.bean.pagez.PageResult;
 import com.cskaoyan.service.plan.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +22,7 @@ public class ProductController {
     }
     @RequestMapping("list")
     @ResponseBody
-    public List<Product> queryOrderByPage(int page, int rows){
-        List<Product> products = productService.queryOrderByPageAndRows(page,rows);
-        return products;
+    public PageResult queryOrderByPage(int page, int rows){
+        return productService.queryOrderByPageAndRows(page,rows);
     }
 }

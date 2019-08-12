@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--自定义，用来显示第一个1.1-->
 <mapper namespace="com.cskaoyan.mapper.COrderMapper">
+  <resultMap id="Order_management" type="com.cskaoyan.bean.COrder">
+    <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="custom_id" jdbcType="VARCHAR" property="customId" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="order_date" jdbcType="TIMESTAMP" property="orderDate" />
+    <result column="request_date" jdbcType="TIMESTAMP" property="requestDate" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="file" jdbcType="VARCHAR" property="file" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <association property="product" javaType="com.cskaoyan.bean.Product">
+      <result column="product_id" property="productId" />
+      <result column="product_name" property="productName" />
+      <result column="product_type" property="productType" />
+      <result column="image" property="image" />
+      <result column="note" property="note" />
+      <result column="status" property="status" />
+    </association>
+    <association property="custom" javaType="com.cskaoyan.bean.Custom">
+      <result column="custom_id" property="customId" />
+      <result column="custom_name" property="customName" />
+      <result column="full_name" property="fullName" />
+      <result column="address" property="address" />
+      <result column="fax" property="fax" />
+      <result column="email" property="email" />
+      <result column="owner_name" property="ownerName" />
+      <result column="owner_tel" property="ownerTel" />
+      <result column="status" property="status" />
+      <result column="note" property="note" />
+    </association>
+  </resultMap>
+
+
   <resultMap id="BaseResultMap" type="com.cskaoyan.bean.COrder">
     <id column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="custom_id" jdbcType="VARCHAR" property="customId" />
@@ -14,6 +51,26 @@
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="file" jdbcType="VARCHAR" property="file" />
     <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+
+  <resultMap id="orderresultMap" type="com.cskaoyan.bean.COrder2">
+    <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="order_date" jdbcType="TIMESTAMP" property="orderDate" />
+    <result column="request_date" jdbcType="TIMESTAMP" property="requestDate" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="file" jdbcType="VARCHAR" property="file" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <collection property="custom" ofType="com.cskaoyan.bean.Custom">
+      <result property="customId" column="custom_id"/>
+    </collection>
+    <collection property="product" ofType="com.cskaoyan.bean.Product">
+      <result property="productId" column="product_id"/>
+    </collection>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -320,4 +377,166 @@
       status = #{status,jdbcType=INTEGER}
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
+  <select id="queryorderdetail" resultMap="orderresultMap">
+select
+    co.order_id,
+    co.order_date,
+    co.request_date,
+    co.note,
+    co.quantity,
+    co.unit_price,
+    co.unit,
+    co.image,
+    co.file,
+    co.status,
+    cu.custom_id,
+    pr.product_id
+    from c_order co left join custom cu on co.custom_id = cu.custom_id
+    left join product pr on co.product_id = pr.product_id
+    where order_id = #{oid}
+  </select>
+<!--  1.1的数据库查询（无查询条件时候的显示）-->
+  <select id="queryorderdetail2" resultMap="Order_management">
+select
+  co.order_id,
+  co.custom_id,
+  co.product_id,
+  co.order_date,
+  co.request_date,
+  co.note,
+  co.quantity,
+  co.unit_price,
+  co.unit,
+  co.image,
+  co.file,
+  co.status,
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note,
+  pr.product_id,
+  pr.product_name,
+  pr.product_type,
+  pr.image,
+  pr.note,
+  pr.status
+  from c_order co left join custom cu on co.custom_id = cu.custom_id
+  left join product pr on co.product_id = pr.product_id
+  </select>
+  <!--  1.1的数据库查询（有查询条件search_order_by_orderId时候的显示）-->
+  <select id="search_order_by_orderId" resultMap="Order_management">
+select
+  co.order_id,
+  co.custom_id,
+  co.product_id,
+  co.order_date,
+  co.request_date,
+  co.note,
+  co.quantity,
+  co.unit_price,
+  co.unit,
+  co.image,
+  co.file,
+  co.status,
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note,
+  pr.product_id,
+  pr.product_name,
+  pr.product_type,
+  pr.image,
+  pr.note,
+  pr.status
+  from c_order co left join custom cu on co.custom_id = cu.custom_id
+  left join product pr on co.product_id = pr.product_id
+  where co.order_id LIKE CONCAT ('%',#{id},'%')
+  </select>
+  <!--  1.1的数据库查询（有查询条件search_order_by_orderCustom时候的显示）-->
+  <select id="search_order_by_orderCustom" resultMap="Order_management">
+select
+  co.order_id,
+  co.custom_id,
+  co.product_id,
+  co.order_date,
+  co.request_date,
+  co.note,
+  co.quantity,
+  co.unit_price,
+  co.unit,
+  co.image,
+  co.file,
+  co.status,
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note,
+  pr.product_id,
+  pr.product_name,
+  pr.product_type,
+  pr.image,
+  pr.note,
+  pr.status
+  from c_order co
+  left join custom cu on co.custom_id = cu.custom_id
+  left join product pr on co.product_id = pr.product_id
+  where cu.custom_name LIKE CONCAT ('%',#{id},'%')
+  </select>
+
+
+
+
+  <select id="search_order_by_orderProduct" resultMap="Order_management">
+select
+  co.order_id,
+  co.custom_id,
+  co.product_id,
+  co.order_date,
+  co.request_date,
+  co.note,
+  co.quantity,
+  co.unit_price,
+  co.unit,
+  co.image,
+  co.file,
+  co.status,
+  cu.custom_id,
+  cu.custom_name,
+  cu.full_name,
+  cu.address,
+  cu.fax,
+  cu.email,
+  cu.owner_name,
+  cu.owner_tel,
+  cu.status,
+  cu.note,
+  pr.product_id,
+  pr.product_name,
+  pr.product_type,
+  pr.image,
+  pr.note,
+  pr.status
+  from c_order co
+  left join custom cu on co.custom_id = cu.custom_id
+  left join product pr on co.product_id = pr.product_id
+  where pr.product_name LIKE CONCAT ('%',#{id},'%')
+  </select>
 </mapper>

@@ -1,11 +1,8 @@
 package com.cskaoyan.service.plan;
 
+import com.cskaoyan.bean.pagez.PageResult;
 
-
-import com.cskaoyan.bean.Work;
-
-import java.util.List;
 
 public interface WorkService {
-    List<Work> queryOrderByPageAndRows(int page, int rows);
+    PageResult queryOrderByPageAndRows(int page, int rows);
 }

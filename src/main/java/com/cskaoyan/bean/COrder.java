@@ -1,5 +1,7 @@
 package com.cskaoyan.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,8 +12,9 @@ public class COrder {
 
     private String productId;
 
+    @DateTimeFormat(pattern = "yy-MM-dd HH:mm:ss")
     private Date orderDate;
-
+    @DateTimeFormat(pattern = "yy-MM-dd HH:mm:ss")
     private Date requestDate;
 
     private String note;
@@ -27,6 +30,29 @@ public class COrder {
     private String file;
 
     private Integer status;
+
+
+//     我自己新增的字段
+   private Product product;
+   private Custom custom;
+
+
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Custom getCustom() {
+        return custom;
+    }
+
+    public void setCustom(Custom custom) {
+        this.custom = custom;
+    }
 
     public String getOrderId() {
         return orderId;

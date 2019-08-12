@@ -3,11 +3,20 @@ package com.cskaoyan.bean.pagez;
 import java.util.List;
 
 //<<<<<<< HEAD
+//<<<<<<< HEAD
 //public class PageResult {
 //
 //    private long total;
 //
 //=======
+//=======
+///*<<<<<<< HEAD
+//public class PageResult {
+//
+//    private long total;
+//
+//=======*/
+//>>>>>>> 693bcb0db86d01db50467593b08f3bc651456da0
 /**
  * @author ethan
  * @date 2019/8/9 15:03
