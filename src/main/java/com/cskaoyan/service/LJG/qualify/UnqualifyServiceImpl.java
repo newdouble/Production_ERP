@@ -46,6 +46,7 @@ public class UnqualifyServiceImpl implements UnqualifyService {
     public PageResult searchUnqualifyByName(String name, int page, int rows) {
         PageResult pageResult = new PageResult();
         PageHelper.startPage(page,rows);
+        name = "%" + name + "%";
         List<UnqualifyApply> unqualifyApplies = unqualifyApplyMapper.searchUnqualifyApplyByName(name);
         PageInfo<UnqualifyApply> pageInfo = new PageInfo<>(unqualifyApplies);
         pageResult.setRows(unqualifyApplies);

@@ -318,6 +318,6 @@
      from  unqualify_apply un
      left join product pr on un.product_id=pr.product_id
      left join employee em on un.emp_id=em.emp_id
-     where pr.product_name = #{namez}
+     where pr.product_name like #{namez}
   </select>
 </mapper>
