@@ -42,7 +42,7 @@ public class LjgMeasureCheckController {
         hashMap.put("rows",processMeasureCheck2s);
         return hashMap;
     }*/
-    @RequestMapping("/p_measure_check/li st")
+    @RequestMapping("/p_measure_check/list")
     @ResponseBody
     public PageResult getPageList(int page,int rows){
         PageResult pageResult = new PageResult();

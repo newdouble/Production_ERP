@@ -20,7 +20,7 @@
     <!--druid数据源相关-->
     <bean id="myDataSources" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/production_ssm"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/production_ssm?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
     </bean>
