@@ -8,7 +8,7 @@ public class HomeController {
 
     @RequestMapping("/home")
     public String home(){
-        System.out.println("ssssssssssss");
+
         return "WEB-INF/jsp/home.jsp";
     }
 }

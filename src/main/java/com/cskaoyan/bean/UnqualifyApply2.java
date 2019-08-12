@@ -2,8 +2,9 @@ package com.cskaoyan.bean;
 
 public class UnqualifyApply2 extends UnqualifyApply {
 
-    private String empName;
     private String productName;
+    private String empName;
+
 
     public String getEmpName() {
         return empName;

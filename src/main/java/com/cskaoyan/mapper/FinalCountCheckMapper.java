@@ -30,4 +30,8 @@ public interface FinalCountCheckMapper {
     int updateByPrimaryKey(FinalCountCheck record);
 
     List<FinalCountCheck2> queryCheckCount();
+
+    List<FinalCountCheck2> SearchFcountById(@Param("idz")String id);
+
+    List<FinalCountCheck2> SearchFcountByOId(@Param("id")String id);
 }

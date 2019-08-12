@@ -32,6 +32,7 @@ public interface COrderMapper {
 
     COrder2 queryorderdetail(@Param("oid") String id);
 
+
     List<COrder> queryorderdetail2();
 
     List<COrder> search_order_by_orderId(@Param("id") String id);
@@ -39,4 +40,7 @@ public interface COrderMapper {
     List<COrder> search_order_by_orderCustom(@Param("id") String id);
 
     List<COrder> search_order_by_orderProduct(@Param("id") String id);
+
+    List<COrder2> orderGetData();
+
 }

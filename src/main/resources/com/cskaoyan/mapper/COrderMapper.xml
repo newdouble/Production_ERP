@@ -395,6 +395,7 @@ select
     left join product pr on co.product_id = pr.product_id
     where order_id = #{oid}
   </select>
+
 <!--  1.1的数据库查询（无查询条件时候的显示）-->
   <select id="queryorderdetail2" resultMap="Order_management">
 select
@@ -538,5 +539,23 @@ select
   left join custom cu on co.custom_id = cu.custom_id
   left join product pr on co.product_id = pr.product_id
   where pr.product_name LIKE CONCAT ('%',#{id},'%')
+</select>
+  <select id="orderGetData" resultMap="orderresultMap">
+select
+    co.order_id,
+    co.order_date,
+    co.request_date,
+    co.note,
+    co.quantity,
+    co.unit_price,
+    co.unit,
+    co.image,
+    co.file,
+    co.status,
+    cu.custom_id,
+    pr.product_id
+    from c_order co left join custom cu on co.custom_id = cu.custom_id
+    left join product pr on co.product_id = pr.product_id
+
   </select>
 </mapper>

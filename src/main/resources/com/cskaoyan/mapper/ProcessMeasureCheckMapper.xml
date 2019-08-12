@@ -280,4 +280,19 @@
     em.emp_name
     from process_measure_check pm left join employee em on pm.emp_id = em.emp_id
   </select>
+
+  <select id="serachByPmeasureCheckId" resultMap="measureResultMap">
+    select
+    pm.p_measure_check_id,
+    pm.process_id,
+    pm.check_item,
+    pm.cdate,
+    pm.measure_data,
+    pm.emp_id,
+    pm.result,
+    pm.note,
+    em.emp_name
+    from process_measure_check pm left join employee em on pm.emp_id = em.emp_id
+    where pm.p_measure_check_id like '%${id}%'
+  </select>
 </mapper>
