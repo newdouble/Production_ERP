@@ -17,9 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
-成品计数质检
-* */
+/**
+ * 成品技术质检
+ */
 @Controller
 public class LjgCheckListController {
     @Autowired
